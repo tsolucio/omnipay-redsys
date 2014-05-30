@@ -16,7 +16,7 @@
         {
             "name": "Bernat Arlandis",
             "email": "bernat@tsolucio.com"
-        },
+        }
     ],
     "autoload": {
         "psr-4": { "Omnipay\\Redsys\\" : "src/" }
