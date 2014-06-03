@@ -7,7 +7,7 @@ use Omnipay\Common\Message\AbstractResponse;
 /**
  * Redsys Response
  */
-class PurchaseResponse extends AbstractResponse
+class CompletePurchaseResponse extends AbstractResponse
 {
     public function isSuccessful()
     {

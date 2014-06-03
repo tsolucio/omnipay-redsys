@@ -2,6 +2,8 @@
 
 namespace Omnipay\Redsys\Message;
 
+use Omnipay\Common\Exception\InvalidResponseException;
+
 /**
  * Redsys Complete Purchase Request
  */
@@ -28,7 +30,7 @@ class CompletePurchaseRequest extends PurchaseRequest
 
     public function getData()
     {
-        $query = $this->httpRequest->query;
+        $query = $this->httpRequest->request;
 
         $data = array();
 
@@ -36,8 +38,8 @@ class CompletePurchaseRequest extends PurchaseRequest
             $data[$field] = $query->get($field);
         }
 
-        if (!$this->checkSignature) {
-            throw new RuntimeException('Invalid signature, Order:' . $data['Ds_Order'] . ', Authorisation Code: ' . $data['Ds_AuthorisationCode']);
+        if (!$this->checkSignature($data)) {
+            throw new InvalidResponseException('Invalid signature, Order:' . $data['Ds_Order'] . ', Authorisation Code: ' . $data['Ds_AuthorisationCode']);
         }
 
         return $data;
@@ -45,6 +47,6 @@ class CompletePurchaseRequest extends PurchaseRequest
 
     public function sendData($data)
     {
-        return $this->response = new CompletePurchaseResponse($this, $data, $this->getEndpoint());
+        return $this->response = new CompletePurchaseResponse($this, $data);
     }
 }
