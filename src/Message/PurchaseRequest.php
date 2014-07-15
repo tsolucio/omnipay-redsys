@@ -83,6 +83,17 @@ class PurchaseRequest extends AbstractRequest
         return $this->setParameter('authorisationCode', $value);
     }
 
+    public function getPayMethods()
+    {
+        return $this->getParameter('payMethods');
+    }
+
+    public function setPayMethods($value)
+    {
+        return $this->setParameter('payMethods', $value);
+    }
+
+
     public function generateSignature($data) {
         $signature = '';
 
@@ -119,6 +130,7 @@ class PurchaseRequest extends AbstractRequest
             'Ds_Merchant_MerchantData' => $this->getExtraData(),
             'Ds_Merchant_TransactionType' => 0,
             'Ds_Merchant_AuthorisationCode' => $this->getAuthorisationCode(),
+            'Ds_Merchant_PayMethods' => $this->getPayMethods(),
         );
 
         $data['Ds_Merchant_MerchantSignature'] = $this->generateSignature($data);
