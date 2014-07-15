@@ -55,6 +55,16 @@ class Gateway extends AbstractGateway
         return $this->setParameter('terminal', $value);
     }
 
+    public function getPayMethods()
+    {
+        return $this->getParameter('payMethods');
+    }
+
+    public function setPayMethods($value)
+    {
+        return $this->setParameter('payMethods', $value);
+    }
+
     public function purchase(array $parameters = array())
     {
         return $this->createRequest('\Omnipay\Redsys\Message\PurchaseRequest', $parameters);
