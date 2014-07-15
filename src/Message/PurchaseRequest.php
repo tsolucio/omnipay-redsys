@@ -93,7 +93,6 @@ class PurchaseRequest extends AbstractRequest
         return $this->setParameter('payMethods', $value);
     }
 
-
     public function generateSignature($data) {
         $signature = '';
 
