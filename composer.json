@@ -1,5 +1,5 @@
 {
-    "name": "berarma/omnipay-redsys",
+    "name": "tsolucio/omnipay-redsys",
     "type": "library",
     "description": "Redsys gateway for the Omnipay payment processing library",
     "keywords": [
@@ -10,7 +10,7 @@
         "pay",
         "payment"
     ],
-    "homepage": "https://github.com/berarma/omnipay-redsys",
+    "homepage": "https://github.com/tsolucio/omnipay-redsys",
     "license": "MIT",
     "authors": [
         {
