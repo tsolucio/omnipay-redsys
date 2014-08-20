@@ -129,8 +129,11 @@ class PurchaseRequest extends AbstractRequest
             'Ds_Merchant_MerchantData' => $this->getExtraData(),
             'Ds_Merchant_TransactionType' => 0,
             'Ds_Merchant_AuthorisationCode' => $this->getAuthorisationCode(),
-            'Ds_Merchant_PayMethods' => $this->getPayMethods(),
         );
+
+        if ($this->getPayMethods()) {
+            $data['Ds_Merchant_PayMethods'] = $this->getPayMethods();
+        }
 
         $data['Ds_Merchant_MerchantSignature'] = $this->generateSignature($data);
 
